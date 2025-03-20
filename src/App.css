@@ -1,0 +1,191 @@
+:root {
+  --transition-bg-colors: background-color 1000ms linear;
+  --transition-text-colors: color 1000ms linear;
+
+  --outer-bg-color-on: #fbedf2;
+  --outer-bg-color-off: #2b1247;
+  --outer-bg-opacity-on: 0.6;
+  --outer-bg-opacity-off: 1;
+  --outer-bg-image-on: repeating-linear-gradient(45deg, #e60077 25%, transparent 25%, transparent 75%, #e60077 75%, #e60077), repeating-linear-gradient(45deg, #e60077 25%, #fbedf2 25%, #fbedf2 75%, #e60077 75%, #e60077);
+  --outer-bg-image-off: repeating-linear-gradient(45deg, #0c012e 25%, transparent 25%, transparent 75%, #0c012e 75%, #0c012e), repeating-linear-gradient(45deg, #0c012e 25%, #2b1247 25%, #2b1247 75%, #0c012e 75%, #0c012e);
+
+  --background-on: #D5F5F5;
+  --background-off: black;
+  --background-text-on: black;
+  --background-text-off: white;
+
+  --round-corner: 10px;
+  --switch-width: 200px;
+  --switch-height: 300px;
+  --switch-outline-color-on: 2px solid grey;
+  --switch-outline-color-off: 2px solid grey;
+  --switch-background-off: black;
+  --switch-background-on: white;
+  --switch-text-off: white;
+  --switch-text-on: black;
+  --switch-font-family: 'Arial', sans-serif;
+  --switch-box-shadow-on: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  --switch-box-shadow-off: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  --lever-width: 50px;
+  --lever-height: 100px;
+  --lever-background-off: white;
+  --lever-background-on: black;
+
+  --lever-pull-width: 100%;
+  --lever-pull-height: 35%;
+  --lever-pull-background-off: white;
+  --lever-pull-background-on: black;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 2rem; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--background-off);
+  opacity: 0.6;
+  background-position: 0 0, 13px 13px;
+  background-size: 26px 26px;
+  width: 100%;
+  transition: var(--transition-bg-colors);
+  transition: var(--transition-text-colors);
+}
+
+.background {
+  width: 70%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition-bg-colors);
+  transition: var(--transition-text-colors);
+}
+
+.background.on {
+  background-color: var(--background-on);
+  color: var(--background-text-on);
+}
+
+.background.off {
+  background-color: var(--background-off);
+  color: var(--background-text-off);
+}
+
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.switch {
+  border-radius: var(--round-corner);
+  width: var(--switch-width);
+  height: var(--switch-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--switch-font-family);
+  transition: var(--transition-bg-colors);
+  transition: var(--transition-text-colors);
+}
+
+.switch.off {
+  background-color: var(--switch-background-off);
+  color: var(--switch-text-off);
+  box-shadow: var(--switch-box-shadow-on);
+  border: var(--switch-outline-color-on);
+}
+
+.switch.on {
+  background-color: var(--switch-background-on);
+  color: var(--switch-text-on);
+  box-shadow: var(--switch-box-shadow-on);
+  border: var(--switch-outline-color-on);
+}
+
+.lever {
+  width: var(--lever-width);
+  height: var(--lever-height);
+  border: var(--switch-outline-color-on);
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: var(--transition-bg-colors);
+  transition: var(--transition-text-colors);
+}
+
+.lever:hover {
+  cursor: pointer;
+}
+
+.lever.off {
+  background-color: var(--lever-background-off);
+}
+
+.lever.on {
+  background-color: var(--lever-background-on);
+}
+
+.lever-pull {
+  width: var(--lever-pull-width);
+  height: var(--lever-pull-height);
+  border: var(--switch-outline-color-on);
+  box-sizing: border-box;
+  transition: var(--transition-bg-colors);
+  transition: var(--transition-text-colors);
+}
+
+.lever-pull.off {
+  align-self: flex-end;
+  background-color: var(--lever-pull-background-off);
+}
+
+.lever-pull.on {
+  align-self: flex-start;
+  background-color: var(--lever-pull-background-on);
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
