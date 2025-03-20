@@ -7,7 +7,7 @@ import './App.css'
 function App() {
   const [isOn, setIsOn] = useState(false);
   
-  const message = isOn ? "That's better! Look around!" : "This is dark, turn on a light?";
+  const message = isOn ? "That's better! Look around!" : "It's so dark, turn on a light?";
   const bgClass = isOn ? "on" : "off";
 
   document.getElementById('root').style.backgroundColor = isOn ? 'var(--outer-bg-color-on)' : 'var(--outer-bg-color-off)';

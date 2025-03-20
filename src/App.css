@@ -1,46 +1,47 @@
 :root {
-  --transition-bg-colors: background-color 1000ms linear;
-  --transition-text-colors: color 1000ms linear;
+  --transition-bg-colors: background-color 100ms linear;
+  --transition-text-colors: color 150ms ease;
 
   --outer-bg-color-on: rgba(251, 237, 242, .6);
-  --outer-bg-color-off: #2b1247;
+  --outer-bg-color-off: #1D0834;
   --outer-bg-opacity-on: 1;
   --outer-bg-opacity-off: 1;
   --outer-bg-image-on: repeating-linear-gradient(45deg, rgba(230, 0, 119, .6) 25%, transparent 25%, transparent 75%, rgba(230, 0, 119, .6) 75%, rgba(230, 0, 119, .6)), repeating-linear-gradient(45deg, rgba(230, 0, 119, .6) 25%, rgba(251, 237, 242, .6) 25%, rgba(251, 237, 242, .6) 75%, rgba(230, 0, 119, .6), rgba(230, 0, 119, .6));
-  --outer-bg-image-off: repeating-linear-gradient(45deg, #0c012e 25%, transparent 25%, transparent 75%, #0c012e 75%, #0c012e), repeating-linear-gradient(45deg, #0c012e 25%, #2b1247 25%, #2b1247 75%, #0c012e 75%, #0c012e);
+  --outer-bg-image-off: repeating-linear-gradient(45deg, #0c012e 25%, transparent 25%, transparent 75%, #0c012e 75%, #0c012e), repeating-linear-gradient(45deg, #1D0834 25%, #250B40 25%, #250B40 75%, #0c012e 75%, #0c012e);
 
   --background-on:   #e6f8f8;
-  --background-off: black;
+  --background-off: #131216;
   --background-text-on: rgba(230, 0, 119, .8);
-  --background-text-off: white;
+  --background-text-off: #797C99;
 
   --round-corner: 10px;
   --switch-width: 200px;
   --switch-height: 260px;
   --switch-text-size: 40px;
   --switch-outline-color-on: 1px solid #C79683;
-  --switch-outline-color-off: 2px solid grey;
-  --switch-background-off: black;
+  --switch-outline-color-off: 2px solid #514B6C;
+  --switch-background-off: #383145;
   --switch-background-on: #FFFCFB;
-  --switch-text-off: white;
+  --switch-text-off: #979AC2;
   --switch-text-on: rgba(230, 0, 119, .6);
   --switch-font-family: 'Arial', sans-serif;
   --switch-box-shadow-on: 0 4px 8px 0 #D0D0D0, 0 6px 20px 0 #D0D0D0;
-  --switch-box-shadow-off: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  --switch-box-shadow-off: 0 4px 8px 0 #363040, 0 6px 20px 0 #363040;
 
   --lever-width: 50px;
   --lever-height: 120px;
-  --lever-background-off: white;
+  --lever-background-off: #2D2539;
   --lever-background-on: #F5E2DB;
-  --lever-shadow-off: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  --lever-shadow-off: inset 0 0 10px #1D0834;
   --lever-shadow-on: inset 0 0 5px #A9877B;
+  --lever-outline-off: 1px solid 222028;
 
   --lever-pull-width: 100%;
   --lever-pull-height: 40%;
-  --lever-pull-background-off: white;
+  --lever-pull-background-off: #4C4465;
   --lever-pull-background-on: #FFEEE8;
   --lever-pull-shadow-on: 0px 15px 10px -3.5px #A9877B, 0 0px 0px 0 #A9877B;
-  --lever-pull-shadow-off: 0 4px 8px 0 #C79683, 0 6px 20px 0 #C79683;
+  --lever-pull-shadow-off: 0px 15px 10px 2px #222028, 0 0px 0px 0 #222028;
 }
 
 #root {
@@ -84,6 +85,9 @@
 
 .show {
   visibility: visible;
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
 }
 
 .hide {
@@ -134,6 +138,7 @@
   box-sizing: border-box;
   transition: var(--transition-bg-colors);
   transition: var(--transition-text-colors);
+  margin-top: 10px;
 }
 
 .lever:hover {
@@ -143,7 +148,7 @@
 .lever.off {
   background-color: var(--lever-background-off);
   box-shadow: var(--lever-shadow-off);
-  border: var(--switch-outline-color-on);
+  border: var(--lever-outline-off);
 }
 
 .lever.on {
@@ -164,7 +169,7 @@
   align-self: flex-end;
   background-color: var(--lever-pull-background-off);
   box-shadow: var(--lever-pull-shadow-off);
-  border: var(--switch-outline-color-off);
+  border: var(--lever-outline-off);
 }
 
 .lever-pull.on {
