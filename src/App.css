@@ -2,40 +2,45 @@
   --transition-bg-colors: background-color 1000ms linear;
   --transition-text-colors: color 1000ms linear;
 
-  --outer-bg-color-on: #fbedf2;
+  --outer-bg-color-on: rgba(251, 237, 242, .6);
   --outer-bg-color-off: #2b1247;
-  --outer-bg-opacity-on: 0.6;
+  --outer-bg-opacity-on: 1;
   --outer-bg-opacity-off: 1;
-  --outer-bg-image-on: repeating-linear-gradient(45deg, #e60077 25%, transparent 25%, transparent 75%, #e60077 75%, #e60077), repeating-linear-gradient(45deg, #e60077 25%, #fbedf2 25%, #fbedf2 75%, #e60077 75%, #e60077);
+  --outer-bg-image-on: repeating-linear-gradient(45deg, rgba(230, 0, 119, .6) 25%, transparent 25%, transparent 75%, rgba(230, 0, 119, .6) 75%, rgba(230, 0, 119, .6)), repeating-linear-gradient(45deg, rgba(230, 0, 119, .6) 25%, rgba(251, 237, 242, .6) 25%, rgba(251, 237, 242, .6) 75%, rgba(230, 0, 119, .6), rgba(230, 0, 119, .6));
   --outer-bg-image-off: repeating-linear-gradient(45deg, #0c012e 25%, transparent 25%, transparent 75%, #0c012e 75%, #0c012e), repeating-linear-gradient(45deg, #0c012e 25%, #2b1247 25%, #2b1247 75%, #0c012e 75%, #0c012e);
 
-  --background-on: #D5F5F5;
+  --background-on:   #e6f8f8;
   --background-off: black;
-  --background-text-on: black;
+  --background-text-on: rgba(230, 0, 119, .8);
   --background-text-off: white;
 
   --round-corner: 10px;
   --switch-width: 200px;
-  --switch-height: 300px;
-  --switch-outline-color-on: 2px solid grey;
+  --switch-height: 260px;
+  --switch-text-size: 40px;
+  --switch-outline-color-on: 1px solid #C79683;
   --switch-outline-color-off: 2px solid grey;
   --switch-background-off: black;
-  --switch-background-on: white;
+  --switch-background-on: #FFFCFB;
   --switch-text-off: white;
-  --switch-text-on: black;
+  --switch-text-on: rgba(230, 0, 119, .6);
   --switch-font-family: 'Arial', sans-serif;
-  --switch-box-shadow-on: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  --switch-box-shadow-on: 0 4px 8px 0 #D0D0D0, 0 6px 20px 0 #D0D0D0;
   --switch-box-shadow-off: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   --lever-width: 50px;
-  --lever-height: 100px;
+  --lever-height: 120px;
   --lever-background-off: white;
-  --lever-background-on: black;
+  --lever-background-on: #F5E2DB;
+  --lever-shadow-off: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  --lever-shadow-on: inset 0 0 5px #A9877B;
 
   --lever-pull-width: 100%;
-  --lever-pull-height: 35%;
+  --lever-pull-height: 40%;
   --lever-pull-background-off: white;
-  --lever-pull-background-on: black;
+  --lever-pull-background-on: #FFEEE8;
+  --lever-pull-shadow-on: 0px 15px 10px -3.5px #A9877B, 0 0px 0px 0 #A9877B;
+  --lever-pull-shadow-off: 0 4px 8px 0 #C79683, 0 6px 20px 0 #C79683;
 }
 
 #root {
@@ -58,7 +63,7 @@
 
 .background {
   width: 70%;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -92,30 +97,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   font-family: var(--switch-font-family);
   transition: var(--transition-bg-colors);
   transition: var(--transition-text-colors);
 }
 
+.switch h2 {
+  margin: 0;
+  padding: 0;
+}
+
 .switch.off {
   background-color: var(--switch-background-off);
   color: var(--switch-text-off);
-  box-shadow: var(--switch-box-shadow-on);
-  border: var(--switch-outline-color-on);
+  border: var(--switch-outline-color-off);
+  box-shadow: var(--switch-box-shadow-off);
 }
 
 .switch.on {
   background-color: var(--switch-background-on);
   color: var(--switch-text-on);
-  box-shadow: var(--switch-box-shadow-on);
   border: var(--switch-outline-color-on);
+  box-shadow: var(--switch-box-shadow-on);
+}
+
+.switch-text {
+  font-size: var(--switch-text-size);
 }
 
 .lever {
   width: var(--lever-width);
   height: var(--lever-height);
-  border: var(--switch-outline-color-on);
   display: flex;
   justify-content: center;
   box-sizing: border-box;
@@ -129,16 +142,19 @@
 
 .lever.off {
   background-color: var(--lever-background-off);
+  box-shadow: var(--lever-shadow-off);
+  border: var(--switch-outline-color-on);
 }
 
 .lever.on {
   background-color: var(--lever-background-on);
+  box-shadow: var(--lever-shadow-on);
+  border: var(--switch-outline-color-on);
 }
 
 .lever-pull {
   width: var(--lever-pull-width);
   height: var(--lever-pull-height);
-  border: var(--switch-outline-color-on);
   box-sizing: border-box;
   transition: var(--transition-bg-colors);
   transition: var(--transition-text-colors);
@@ -147,11 +163,15 @@
 .lever-pull.off {
   align-self: flex-end;
   background-color: var(--lever-pull-background-off);
+  box-shadow: var(--lever-pull-shadow-off);
+  border: var(--switch-outline-color-off);
 }
 
 .lever-pull.on {
   align-self: flex-start;
   background-color: var(--lever-pull-background-on);
+  box-shadow: var(--lever-pull-shadow-on);
+  border: var(--switch-outline-color-on);
 }
 
 .logo {

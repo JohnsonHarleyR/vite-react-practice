@@ -15,7 +15,7 @@ function App() {
   document.getElementById('root').style.opacity = isOn ? 'var(--outer-bg-opacity-on)' : 'var(--outer-bg-opacity-off)';
 
   return (
-    <div class={'background ' + bgClass}>
+    <div className={'background ' + bgClass}>
       <h1>{message}</h1>
       <LightSwitch isOn={isOn} setIsOn={setIsOn} />
 

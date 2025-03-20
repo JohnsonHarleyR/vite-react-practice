@@ -13,7 +13,7 @@ const LightSwitch = ({isOn, setIsOn}) => {
         <div onClick={flipSwitch} className={'lever ' + statusClass}>
             <div className={'lever-pull ' + statusClass}></div>
         </div>
-        <h2>{isOn ? "ON" : "OFF"}</h2>
+        <h2 className="switch-text">{isOn ? "ON" : "OFF"}</h2>
         </div>
     )
 }
