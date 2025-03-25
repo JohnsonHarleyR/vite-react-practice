@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react'
 import LightSwitch from './components/LightSwitch'
 import './App.css'
+import Block from './components/Block'
 
 function App() {
   const [isOn, setIsOn] = useState(false);
@@ -19,14 +18,17 @@ function App() {
       <h1>{message}</h1>
       <LightSwitch isOn={isOn} setIsOn={setIsOn} />
 
-
-      <div className={isOn ? 'show' : 'hide'}>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="blocks-area">
+        <div className='blocks-div'>
+          <Block isSwitchOn={isOn} defaultValue={0} />
+          <Block isSwitchOn={isOn} defaultValue={1} />
+          <Block isSwitchOn={isOn} defaultValue={2} />
+          <Block isSwitchOn={isOn} defaultValue={3} />
+          <Block isSwitchOn={isOn} defaultValue={4} />
+          <Block isSwitchOn={isOn} defaultValue={5} />
+          <Block isSwitchOn={isOn} defaultValue={6} />
+        </div>
+        <p>{isOn ? "Click the blocks!" : "(You can only see what these do with the lights on.)"}</p>
       </div>
     </div>
   )

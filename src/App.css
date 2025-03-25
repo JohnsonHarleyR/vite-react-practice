@@ -58,6 +58,7 @@
   background-position: 0 0, 13px 13px;
   background-size: 26px 26px;
   width: 100%;
+  height: 100%;
   transition: var(--transition-bg-colors);
   transition: var(--transition-text-colors);
 }
@@ -177,6 +178,49 @@
   background-color: var(--lever-pull-background-on);
   box-shadow: var(--lever-pull-shadow-on);
   border: var(--switch-outline-color-on);
+}
+
+.blocks-area {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.blocks-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.block {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
+.block.dark {
+  background-color: var(--lever-pull-background-off);
+}
+
+.block.red {
+  background-color: red;
+}
+.block.orange {
+  background-color: orange;
+}
+.block.yellow {
+  background-color: yellow;
+}
+.block.green {
+  background-color: green;
+}
+.block.blue {
+  background-color: blue;
+}
+.block.indigo {
+  background-color: indigo;
+}
+.block.violet {
+  background-color: violet;
 }
 
 .logo {
