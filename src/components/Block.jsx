@@ -10,9 +10,6 @@ const Block = ({isSwitchOn, defaultValue}) => {
     const blockClass = !isSwitchOn ? "block dark" : "block " + colors[arrayValue];
 
     const changeColor = () => {
-        if (!isSwitchOn) {
-            return;
-        }
         let newValue = arrayValue == colors.length - 1 ? 0 : arrayValue + 1;
         setArrayValue(newValue);
     }

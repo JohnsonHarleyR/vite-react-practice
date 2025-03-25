@@ -65,7 +65,7 @@
 
 .background {
   width: 70%;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -197,6 +197,10 @@
   margin: 5px;
 }
 
+.block:hover {
+  cursor: pointer;
+}
+
 .block.dark {
   background-color: var(--lever-pull-background-off);
 }
@@ -221,6 +225,25 @@
 }
 .block.violet {
   background-color: violet;
+}
+
+.lang-h3 {
+  margin: 0;
+  font-size: 38px;
+}
+
+.lang-h4 {
+  margin: 0;
+  font-size: 22px;
+  font-style: italic;
+}
+
+.lang-div {
+  margin-bottom: 40px;
+}
+
+.lang-div:hover {
+  cursor: pointer;
 }
 
 .logo {

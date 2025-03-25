@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import LightSwitch from './components/LightSwitch'
-import './App.css'
 import Block from './components/Block'
+import Language from './components/Language'
+import './App.css'
+
 
 function App() {
   const [isOn, setIsOn] = useState(false);
@@ -28,8 +30,10 @@ function App() {
           <Block isSwitchOn={isOn} defaultValue={5} />
           <Block isSwitchOn={isOn} defaultValue={6} />
         </div>
-        <p>{isOn ? "Click the blocks!" : "(You can only see what these do with the lights on.)"}</p>
+        <p>{isOn ? "Click on the blocks above and words below!" : "(You can only see what the blocks do with the lights on.)"}</p>
       </div>
+      <Language/>
+
     </div>
   )
 }
